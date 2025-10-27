@@ -1,17 +1,523 @@
----
-title: 网安学习笔记
----
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>网安学习笔记 | 从基础到实战</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#165DFF',
+                        secondary: '#36CFC9',
+                        dark: '#1D2129',
+                        'dark-light': '#272E3B',
+                        'gray-custom': '#86909C'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        mono: ['Fira Code', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .card-hover {
+                transition: all 0.3s ease;
+            }
+            .card-hover:hover {
+                transform: translateY(-5px);
+            }
+        }
+    </style>
+</head>
+<body class="bg-dark text-gray-200 min-h-screen flex flex-col">
+    <!-- 导航栏 -->
+    <header class="sticky top-0 z-50 bg-dark-light/90 backdrop-blur-sm border-b border-gray-700">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-2">
+                <i class="fa fa-shield text-primary text-2xl"></i>
+                <h1 class="text-xl font-bold tracking-tight">网安学习笔记</h1>
+            </div>
+            <nav class="hidden md:flex gap-6">
+                <a href="#overview" class="hover:text-primary transition-colors"><i class="fa fa-map-o mr-1"></i>学习路径</a>
+                <a href="#modules" class="hover:text-primary transition-colors"><i class="fa fa-book mr-1"></i>核心模块</a>
+                <a href="#updates" class="hover:text-primary transition-colors"><i class="fa fa-history mr-1"></i>最近更新</a>
+                <a href="#resources" class="hover:text-primary transition-colors"><i class="fa fa-link mr-1"></i>学习资源</a>
+            </nav>
+            <button class="md:hidden text-xl">
+                <i class="fa fa-bars"></i>
+            </button>
+        </div>
+    </header>
 
-# 🌐 网络安全学习记录
+    <!-- 英雄区 -->
+    <section class="py-16 md:py-24 bg-gradient-to-b from-dark to-dark-light">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center">
+                <h1 class="text-[clamp(2rem,5vw,3.5rem)] font-bold mb-6 text-shadow leading-tight">
+                    网络安全<br><span class="text-primary">从入门到实战</span>
+                </h1>
+                <p class="text-gray-custom text-lg md:text-xl mb-8">
+                    系统化整理网络安全学习笔记，包含理论知识、实验步骤、工具使用与实战经验
+                </p>
+                <div class="flex flex-wrap justify-center gap-4">
+                    <a href="#modules" class="bg-primary hover:bg-primary/90 text-white px-6 py-3 rounded-lg font-medium transition-all">
+                        开始学习 <i class="fa fa-arrow-right ml-2"></i>
+                    </a>
+                    <a href="https://github.com/你的用户名/你的仓库名" target="_blank" class="bg-dark-light hover:bg-dark-light/80 border border-gray-600 px-6 py-3 rounded-lg font-medium transition-all">
+                        <i class="fa fa-github mr-2"></i> 仓库地址
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-> 从基础到实战的系统化学习档案，持续更新中...  
-> 在线浏览：[https://你的用户名.github.io/仓库名](https://你的用户名.github.io/仓库名)
+    <!-- 学习路径 -->
+    <section id="overview" class="py-16 bg-dark">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold mb-12 text-center">
+                <i class="fa fa-map-signs text-primary mr-2"></i>学习路径总览
+            </h2>
+            
+            <div class="max-w-4xl mx-auto">
+                <div class="relative">
+                    <!-- 路径线 -->
+                    <div class="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-primary/30"></div>
+                    
+                    <!-- 路径节点 -->
+                    <div class="space-y-16 relative">
+                        <!-- 基础阶段 -->
+                        <div class="flex flex-col md:flex-row items-center">
+                            <div class="md:w-5/12 mb-6 md:mb-0 md:text-right pr-8">
+                                <h3 class="text-xl font-bold text-secondary mb-2">00-基础阶段</h3>
+                                <p class="text-gray-custom">网络协议 / 操作系统 / 编程基础</p>
+                            </div>
+                            <div class="z-10 w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+                                <i class="fa fa-cubes"></i>
+                            </div>
+                            <div class="md:w-5/12 pl-8">
+                                <ul class="text-gray-300 space-y-1">
+                                    <li>• TCP/IP与HTTP协议详解</li>
+                                    <li>• Linux安全命令与权限管理</li>
+                                    <li>• Python网络编程入门</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- Web安全 -->
+                        <div class="flex flex-col md:flex-row items-center">
+                            <div class="md:w-5/12 mb-6 md:mb-0 md:text-right pr-8 order-1 md:order-1">
+                                <h3 class="text-xl font-bold text-secondary mb-2">01-Web安全</h3>
+                                <p class="text-gray-custom">常见漏洞 / 原理分析 / 攻防实践</p>
+                            </div>
+                            <div class="z-10 w-8 h-8 rounded-full bg-primary flex items-center justify-center order-0 md:order-1">
+                                <i class="fa fa-globe"></i>
+                            </div>
+                            <div class="md:w-5/12 pl-8 order-2 md:order-1">
+                                <ul class="text-gray-300 space-y-1">
+                                    <li>• SQL注入与XSS漏洞利用</li>
+                                    <li>• 文件上传与命令注入</li>
+                                    <li>• CSRF与SSRF原理</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- 渗透工具 -->
+                        <div class="flex flex-col md:flex-row items-center">
+                            <div class="md:w-5/12 mb-6 md:mb-0 md:text-right pr-8">
+                                <h3 class="text-xl font-bold text-secondary mb-2">02-渗透工具</h3>
+                                <p class="text-gray-custom">信息收集 / 漏洞利用 / 后渗透</p>
+                            </div>
+                            <div class="z-10 w-8 h-8 rounded-full bg-primary flex items-center justify-center">
+                                <i class="fa fa-wrench"></i>
+                            </div>
+                            <div class="md:w-5/12 pl-8">
+                                <ul class="text-gray-300 space-y-1">
+                                    <li>• Nmap与Burp Suite全解析</li>
+                                    <li>• Metasploit框架使用</li>
+                                    <li>• 内网渗透工具链</li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <!-- CTF实战 -->
+                        <div class="flex flex-col md:flex-row items-center">
+                            <div class="md:w-5/12 mb-6 md:mb-0 md:text-right pr-8 order-1 md:order-1">
+                                <h3 class="text-xl font-bold text-secondary mb-2">03-CTF实战</h3>
+                                <p class="text-gray-custom">真题解析 / 解题思路 / 技巧总结</p>
+                            </div>
+                            <div class="z-10 w-8 h-8 rounded-full bg-primary flex items-center justify-center order-0 md:order-1">
+                                <i class="fa fa-flag-checkered"></i>
+                            </div>
+                            <div class="md:w-5/12 pl-8 order-2 md:order-1">
+                                <ul class="text-gray-300 space-y-1">
+                                    <li>• Web方向CTF题解</li>
+                                    <li>• 流量分析与隐写术</li>
+                                    <li>• 自动化解题脚本</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
+    <!-- 核心模块 -->
+    <section id="modules" class="py-16 bg-dark-light">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold mb-12 text-center">
+                <i class="fa fa-th-large text-primary mr-2"></i>核心内容模块
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- 模块1 -->
+                <div class="bg-dark rounded-xl p-6 border border-gray-700 card-hover">
+                    <div class="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fa fa-server text-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">基础阶段</h3>
+                    <p class="text-gray-custom mb-4">网络与系统基础知识，构建安全学习的底层能力</p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center text-sm">
+                            <i class="fa fa-check text-secondary mr-2"></i>
+                            <a href="00-基础阶段/网络基础/" class="hover:text-primary transition-colors">网络协议详解</a>
+                        </li>
+                        <li class="flex items-center text-sm">
+                            <i class="fa fa-check text-secondary mr-2"></i>
+                            <a href="00-基础阶段/操作系统/" class="hover:text-primary transition-colors">操作系统安全</a>
+                        </li>
+                        <li class="flex items-center text-sm">
+                            <i class="fa fa-check text-secondary mr-2"></i>
+                            <a href="00-基础阶段/编程基础/" class="hover:text-primary transition-colors">安全编程入门</a>
+                        </li>
+                    </ul>
+                    <a href="00-基础阶段/" class="text-primary hover:text-primary/80 text-sm font-medium flex items-center">
+                        查看全部 <i class="fa fa-angle-right ml-1"></i>
+                    </a>
+                </div>
+                
+                <!-- 模块2 -->
+                <div class="bg-dark rounded-xl p-6 border border-gray-700 card-hover">
+                    <div class="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fa fa-code text-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Web安全</h3>
+                    <p class="text-gray-custom mb-4">Web漏洞原理与利用方法，附靶场实战步骤</p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center text-sm">
+                            <i class="fa fa-check text-secondary mr-2"></i>
+                            <a href="01-Web安全/SQL注入/" class="hover:text-primary transition-colors">SQL注入详解</a>
+                        </li>
+                        <li class="flex items-center text-sm">
+                            <i class="fa fa-check text-secondary mr-2"></i>
+                            <a href="01-Web安全/XSS/" class="hover:text-primary transition-colors">XSS跨站脚本</a>
+                        </li>
+                        <li class="flex items-center text-sm">
+                            <i class="fa fa-check text-secondary mr-2"></i>
+                            <a href="01-Web安全/文件上传/" class="hover:text-primary transition-colors">文件上传漏洞</a>
+                        </li>
+                    </ul>
+                    <a href="01-Web安全/" class="text-primary hover:text-primary/80 text-sm font-medium flex items-center">
+                        查看全部 <i class="fa fa-angle-right ml-1"></i>
+                    </a>
+                </div>
+                
+                <!-- 模块3 -->
+                <div class="bg-dark rounded-xl p-6 border border-gray-700 card-hover">
+                    <div class="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fa fa-terminal text-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">渗透工具</h3>
+                    <p class="text-gray-custom mb-4">主流安全工具使用指南，从入门到高级技巧</p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center text-sm">
+                            <i class="fa fa-check text-secondary mr-2"></i>
+                            <a href="02-渗透测试工具/信息收集/" class="hover:text-primary transition-colors">信息收集工具</a>
+                        </li>
+                        <li class="flex items-center text-sm">
+                            <i class="fa fa-check text-secondary mr-2"></i>
+                            <a href="02-渗透测试工具/漏洞利用/" class="hover:text-primary transition-colors">漏洞利用工具</a>
+                        </li>
+                        <li class="flex items-center text-sm">
+                            <i class="fa fa-check text-secondary mr-2"></i>
+                            <a href="02-渗透测试工具/后渗透/" class="hover:text-primary transition-colors">后渗透工具链</a>
+                        </li>
+                    </ul>
+                    <a href="02-渗透测试工具/" class="text-primary hover:text-primary/80 text-sm font-medium flex items-center">
+                        查看全部 <i class="fa fa-angle-right ml-1"></i>
+                    </a>
+                </div>
+                
+                <!-- 模块4 -->
+                <div class="bg-dark rounded-xl p-6 border border-gray-700 card-hover">
+                    <div class="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fa fa-trophy text-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">CTF实战</h3>
+                    <p class="text-gray-custom mb-4">CTF竞赛真题解析与解题思路，提升实战能力</p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center text-sm">
+                            <i class="fa fa-check text-secondary mr-2"></i>
+                            <a href="03-CTF实战/Web题解/" class="hover:text-primary transition-colors">Web方向题解</a>
+                        </li>
+                        <li class="flex items-center text-sm">
+                            <i class="fa fa-check text-secondary mr-2"></i>
+                            <a href="03-CTF实战/Misc/" class="hover:text-primary transition-colors">Misc杂项技巧</a>
+                        </li>
+                        <li class="flex items-center text-sm">
+                            <i class="fa fa-check text-secondary mr-2"></i>
+                            <a href="03-CTF实战/工具脚本/" class="hover:text-primary transition-colors">自动化脚本</a>
+                        </li>
+                    </ul>
+                    <a href="03-CTF实战/" class="text-primary hover:text-primary/80 text-sm font-medium flex items-center">
+                        查看全部 <i class="fa fa-angle-right ml-1"></i>
+                    </a>
+                </div>
+                
+                <!-- 模块5 -->
+                <div class="bg-dark rounded-xl p-6 border border-gray-700 card-hover">
+                    <div class="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fa fa-sticky-note text-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">安全杂记</h3>
+                    <p class="text-gray-custom mb-4">学习过程中的问题记录与解决方案汇总</p>
+                    <ul class="space-y-2 mb-6">
+                        <li class="flex items-center text-sm">
+                            <i class="fa fa-check text-secondary mr-2"></i>
+                            <a href="04-安全杂记/术语表.md" class="hover:text-primary transition-colors">网安术语表</a>
+                        </li>
+                        <li class="flex items-center text-sm">
+                            <i class="fa fa-check text-secondary mr-2"></i>
+                            <a href="04-安全杂记/踩坑记录.md" class="hover:text-primary transition-colors">踩坑记录</a>
+                        </li>
+                        <li class="flex items-center text-sm">
+                            <i class="fa fa-check text-secondary mr-2"></i>
+                            <a href="04-安全杂记/学习资源.md" class="hover:text-primary transition-colors">资源汇总</a>
+                        </li>
+                    </ul>
+                    <a href="04-安全杂记/" class="text-primary hover:text-primary/80 text-sm font-medium flex items-center">
+                        查看全部 <i class="fa fa-angle-right ml-1"></i>
+                    </a>
+                </div>
+                
+                <!-- 学习进度 -->
+                <div class="bg-dark rounded-xl p-6 border border-gray-700 card-hover">
+                    <div class="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center mb-4">
+                        <i class="fa fa-line-chart text-primary text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">学习进度</h3>
+                    <p class="text-gray-custom mb-4">各模块学习完成情况统计</p>
+                    
+                    <div class="space-y-4">
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span>基础阶段</span>
+                                <span>75%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="bg-primary h-2 rounded-full" style="width: 75%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span>Web安全</span>
+                                <span>60%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="bg-primary h-2 rounded-full" style="width: 60%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span>渗透工具</span>
+                                <span>45%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="bg-primary h-2 rounded-full" style="width: 45%"></div>
+                            </div>
+                        </div>
+                        
+                        <div>
+                            <div class="flex justify-between text-sm mb-1">
+                                <span>CTF实战</span>
+                                <span>30%</span>
+                            </div>
+                            <div class="w-full bg-gray-700 rounded-full h-2">
+                                <div class="bg-primary h-2 rounded-full" style="width: 30%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-## 📚 学习路径总览
-```mermaid
-graph TD
-    A[00-基础阶段] -->|网络/系统/编程| B[01-Web安全]
-    B -->|漏洞原理/利用| C[02-渗透测试工具]
-    C -->|实战应用| D[03-CTF实战]
-    D -->|总结与拓展| E[04-安全杂记]
+    <!-- 最近更新 -->
+    <section id="updates" class="py-16 bg-dark">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold mb-12 text-center">
+                <i class="fa fa-refresh text-primary mr-2"></i>最近更新
+            </h2>
+            
+            <div class="max-w-3xl mx-auto space-y-6">
+                <!-- 更新1 -->
+                <div class="bg-dark-light rounded-lg p-5 border border-gray-700 hover:border-primary/50 transition-colors">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-lg">Burp Suite 插件开发入门</h3>
+                        <span class="text-sm text-gray-custom">2025-10-28</span>
+                    </div>
+                    <p class="text-gray-300 text-sm mb-3">学习如何开发Burp Suite插件，实现自定义扫描规则与漏洞检测逻辑</p>
+                    <a href="02-渗透测试工具/Burp/插件开发.md" class="text-primary hover:text-primary/80 text-sm">查看详情 <i class="fa fa-angle-right ml-1"></i></a>
+                </div>
+                
+                <!-- 更新2 -->
+                <div class="bg-dark-light rounded-lg p-5 border border-gray-700 hover:border-primary/50 transition-colors">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-lg">SQL盲注实战步骤补充</h3>
+                        <span class="text-sm text-gray-custom">2025-10-25</span>
+                    </div>
+                    <p class="text-gray-300 text-sm mb-3">补充基于时间的盲注与布尔盲注的详细操作步骤，附靶场测试截图</p>
+                    <a href="01-Web安全/SQL注入/盲注.md" class="text-primary hover:text-primary/80 text-sm">查看详情 <i class="fa fa-angle-right ml-1"></i></a>
+                </div>
+                
+                <!-- 更新3 -->
+                <div class="bg-dark-light rounded-lg p-5 border border-gray-700 hover:border-primary/50 transition-colors">
+                    <div class="flex justify-between items-start mb-2">
+                        <h3 class="font-bold text-lg">Linux提权漏洞笔记</h3>
+                        <span class="text-sm text-gray-custom">2025-10-20</span>
+                    </div>
+                    <p class="text-gray-300 text-sm mb-3">整理常见Linux内核提权漏洞原理与利用方法，包含CVE-2021-4034等案例</p>
+                    <a href="00-基础阶段/操作系统/Linux提权.md" class="text-primary hover:text-primary/80 text-sm">查看详情 <i class="fa fa-angle-right ml-1"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 学习资源 -->
+    <section id="resources" class="py-16 bg-dark-light">
+        <div class="container mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold mb-12 text-center">
+                <i class="fa fa-bookmark text-primary mr-2"></i>推荐学习资源
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                <!-- 书籍 -->
+                <div class="bg-dark rounded-xl p-6 border border-gray-700">
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <i class="fa fa-book text-secondary mr-2"></i> 推荐书籍
+                    </h3>
+                    <ul class="space-y-3">
+                        <li class="flex">
+                            <i class="fa fa-check-circle text-primary mt-1 mr-2"></i>
+                            <div>
+                                <p class="font-medium">《Web渗透测试实战指南》</p>
+                                <p class="text-sm text-gray-custom">适合入门的Web安全实践书籍</p>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <i class="fa fa-check-circle text-primary mt-1 mr-2"></i>
+                            <div>
+                                <p class="font-medium">《CTF竞赛权威指南》</p>
+                                <p class="text-sm text-gray-custom">系统讲解CTF各方向解题思路</p>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <i class="fa fa-check-circle text-primary mt-1 mr-2"></i>
+                            <div>
+                                <p class="font-medium">《计算机网络（谢希仁版）》</p>
+                                <p class="text-sm text-gray-custom">网络基础理论必备教材</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- 靶场 -->
+                <div class="bg-dark rounded-xl p-6 border border-gray-700">
+                    <h3 class="text-xl font-bold mb-4 flex items-center">
+                        <i class="fa fa-crosshairs text-secondary mr-2"></i> 推荐靶场
+                    </h3>
+                    <ul class="space-y-3">
+                        <li class="flex">
+                            <i class="fa fa-check-circle text-primary mt-1 mr-2"></i>
+                            <div>
+                                <p class="font-medium">DVWA（Damn Vulnerable Web App）</p>
+                                <p class="text-sm text-gray-custom">Web漏洞练习经典靶场</p>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <i class="fa fa-check-circle text-primary mt-1 mr-2"></i>
+                            <div>
+                                <p class="font-medium">Hack The Box</p>
+                                <p class="text-sm text-gray-custom">真实环境模拟渗透平台</p>
+                            </div>
+                        </li>
+                        <li class="flex">
+                            <i class="fa fa-check-circle text-primary mt-1 mr-2"></i>
+                            <div>
+                                <p class="font-medium">攻防世界</p>
+                                <p class="text-sm text-gray-custom">适合CTF入门的练习平台</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark border-t border-gray-800 py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <div class="flex items-center gap-2 mb-2">
+                        <i class="fa fa-shield text-primary"></i>
+                        <span class="font-bold">网安学习笔记</span>
+                    </div>
+                    <p class="text-sm text-gray-custom">持续更新 · 共同进步</p>
+                </div>
+                
+                <div class="flex gap-4">
+                    <a href="https://github.com/你的用户名/你的仓库名" target="_blank" class="w-10 h-10 rounded-full bg-dark-light flex items-center justify-center hover:bg-primary/20 transition-colors">
+                        <i class="fa fa-github"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-dark-light flex items-center justify-center hover:bg-primary/20 transition-colors">
+                        <i class="fa fa-twitter"></i>
+                    </a>
+                    <a href="#" class="w-10 h-10 rounded-full bg-dark-light flex items-center justify-center hover:bg-primary/20 transition-colors">
+                        <i class="fa fa-envelope"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="mt-6 pt-6 border-t border-gray-800 text-center text-sm text-gray-custom">
+                © 2025 网安学习笔记 | 基于 GitHub Pages 构建
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
