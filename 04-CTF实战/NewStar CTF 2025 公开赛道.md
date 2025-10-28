@@ -71,6 +71,7 @@ HTTP 协议（JSON 响应包分析、请求方法 / 头修改、GET/POST 传参�
 ![alt text](../image/JPG/step3-3.png)
 
 ![alt text](../image/JPG/step3-4.png)
+
 构造 GET 参数：?shipin=mogubaozi（完整路径为 http://题目域名/?shipin=mogubaozi），访问后获得清晰指引。
 ```plaintext
 ?shipin=mogubaozi
