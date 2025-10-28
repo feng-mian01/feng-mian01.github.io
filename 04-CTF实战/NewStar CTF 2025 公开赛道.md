@@ -1,6 +1,6 @@
 ```markdown
 # NewStar CTF 2025 公开赛道 Web-Week1 题解
-
+---
 
 ## 1. 题目：multi-headach3（难度：☆☆☆☆☆）
 ### 1.1 考点
