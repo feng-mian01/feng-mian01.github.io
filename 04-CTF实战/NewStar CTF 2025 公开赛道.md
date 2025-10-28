@@ -1,8 +1,6 @@
 ```markdown
-# NewStar CTF 2025 公开赛道 Web-Week1 题解汇总
-> 本文包含 Week1 公开赛道 2 道 Web 题的完整解题步骤，聚焦基础信息收集与 SQL 注入漏洞利用。
+# NewStar CTF 2025 公开赛道 Web-Week1 题解
 
----
 
 ## 1. 题目：multi-headach3（难度：☆☆☆☆☆）
 ### 1.1 考点
@@ -29,7 +27,7 @@ robots.txt 协议解析、HTTP 重定向识别与抓包分析
 
 ---
 
-## 2. 题目：strange_login（难度：五角星☆☆☆）
+## 2. 题目：strange_login（难度：☆☆☆☆☆）
 ### 2.1 考点
 SQL 注入（报错注入排查、闭合符与注释符适配）
 
