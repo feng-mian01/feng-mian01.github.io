@@ -51,4 +51,41 @@ SQL 注入（报错注入排查、闭合符与注释符适配）
    密码输入任意内容（如 123），提交后即可绕过登录验证，进入后台页面获取 flag。
    ![alt text](../image/JPG/step2-2.png)
 
+---
 
+## 3. 题目：黑客小 W 的故事（1）（难度：★½☆☆☆）
+### 3.1 考点
+HTTP 协议（JSON 响应包分析、请求方法 / 头修改、GET/POST 传参）
+
+### 3.2 题目描述
+![alt text](../image/JPG/step3-0.png)
+
+### 3.3 解题步骤
+1. 初始抓包分析进入题目页面后，直接使用 Burp Suite 抓包，准备后续改包操作。
+
+![alt text](../image/JPG/step3-1.png)~~叽里咕噜说什么呢~~
+
+![alt text](../image/JPG/step3-2.png)
+2. GET 传参触发有效提示页面初始提示不明确，点击 “提示” 后发现需通过 GET 传参触发下一步。
+
+![alt text](../image/JPG/step3-3.png)
+
+![alt text](../image/JPG/step3-4.png)
+构造 GET 参数：?shipin=mogubaozi（完整路径为 http://题目域名/?shipin=mogubaozi），访问后获得清晰指引。
+```plaintext
+?shipin=mogubaozi
+```
+![alt text](../image/JPG/step3-5.png)
+3. POST 传参与请求方法修改根据提示，需以 POST 方式发送参数 chongzi，同时将请求方法改为 DELETE（通过 Burp 修改请求行的请求方法）。
+
+![alt text](../image/JPG/step3-6.png)
+4. 修改 User-Agent 请求头按提示将请求头 User-Agent 改为指定内容：
+```plaintext
+User-Agent:CycloneSlash/2.0,DashSlash/5.0
+```
+5. 获取 flag
+完成所有请求修改后，提交请求，页面返回 flag。
+
+![alt text](../image/JPG/step3-7.png)
+
+---
