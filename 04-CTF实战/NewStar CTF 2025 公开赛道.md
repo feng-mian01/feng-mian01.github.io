@@ -1051,7 +1051,7 @@ flag{707da60d-1fe9-4cf5-b029-b00fec7367a3}
 PHP 代码审计
 
 ### 5.2 题目描述
-![alt text](../image/JPG/NewStartCTF20225/step11-1.png)
+![alt text](../image/JPG/NewStartCTF20225/wtep11-1.png)
 
 ### 5.3 解题步骤
 1. 代码审计：分析输入处理流程与漏洞点​
@@ -1120,6 +1120,6 @@ cipher (Base64 输入)
 dW91dGlhKCJrbXRcMDQwL2hibWciKTs=
 ```
 3. 提交 payload 执行命令获取 flag
-![alt text](../image/JPG/NewStartCTF20225/step11-2.png)
+![alt text](../image/JPG/NewStartCTF20225/wtep11-2.png)
 
 ---
