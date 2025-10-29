@@ -1042,11 +1042,11 @@ sql from sqlite_master
 flag{707da60d-1fe9-4cf5-b029-b00fec7367a3}
 ```
 结果：成功获取 flag
-![alt text](../image/JPG/NewStartCTF20225/step10-5.png)
+![alt text](../image/JPG/NewStartCTF20225/wtep10-5.png)
 
 ---
 
-## 5. 题目：小E的管理系统（难度：★☆☆☆☆）
+## 5. 题目：真的是签到诶（难度：☆☆☆☆☆）
 ### 5.1 考点
 PHP 代码审计
 
