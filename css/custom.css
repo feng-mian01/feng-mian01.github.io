@@ -28,6 +28,18 @@
   color: var(--font-color);
 }
 
+/* Mark the real current menu item, especially category submenu pages. */
+#menus .menus_item_child .site-page.child.current,
+#sidebar-menus .menus_item_child .site-page.child.current {
+  background: rgba(73, 177, 245, 0.18);
+  color: #49b1f5 !important;
+}
+
+#menus .site-page.group.current,
+#sidebar-menus .site-page.group.current {
+  color: #49b1f5 !important;
+}
+
 /* Categories home card layout */
 [data-theme="light"] #page .category-hub {
   --hub-border: rgba(74, 112, 198, 0.28);

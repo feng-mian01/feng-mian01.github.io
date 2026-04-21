@@ -145,10 +145,35 @@
     }
   };
 
+  const normalizePath = (href) => {
+    try {
+      const url = new URL(href, window.location.origin);
+      return decodeURIComponent(url.pathname).replace(/\/index\.html$/, '/').replace(/\/?$/, '/');
+    } catch (err) {
+      return '';
+    }
+  };
+
+  const markCurrentMenu = () => {
+    const current = normalizePath(window.location.href);
+    if (!current) return;
+
+    document.querySelectorAll('#menus a.site-page, #sidebar-menus a.site-page').forEach((link) => {
+      const target = normalizePath(link.getAttribute('href') || '');
+      const isCurrent = target && target !== '/' && current === target;
+      link.classList.toggle('current', isCurrent);
+      if (isCurrent) {
+        const group = link.closest('.menus_item')?.querySelector('.site-page.group');
+        if (group) group.classList.add('current');
+      }
+    });
+  };
+
   const mount = () => {
     if (runtimeTimer) clearInterval(runtimeTimer);
     if (busuanziTimer) clearTimeout(busuanziTimer);
     updateRuntime();
+    markCurrentMenu();
     runtimeTimer = setInterval(updateRuntime, 1000);
     updateWordCount();
     busuanziTimer = setTimeout(() => {
