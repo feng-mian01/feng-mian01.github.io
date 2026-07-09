@@ -1,1 +1,178 @@
-<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel><title>feng-mian&apos;s Blog</title><description>分享网络安全知识，和各位师傅共同进步</description><link>https://feng-mian01.github.io/</link><language>zh_CN</language></channel></rss>
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>feng-mian&apos;s Blog</title><description>分享网络安全知识，和各位师傅共同进步</description><link>https://feng-mian01.github.io/</link><language>zh_CN</language><item><title>2026年Burp插件安利</title><link>https://feng-mian01.github.io/posts/2026%E5%B9%B4burp%E6%8F%92%E4%BB%B6%E5%AE%89%E5%88%A9/</link><guid isPermaLink="true">https://feng-mian01.github.io/posts/2026%E5%B9%B4burp%E6%8F%92%E4%BB%B6%E5%AE%89%E5%88%A9/</guid><description>分享我2026年上半年常用的Burp Suite插件，记录一些日常渗透测试中的效率工具。</description><pubDate>Thu, 09 Jul 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;2026年Burp插件安利&lt;/h1&gt;
+&lt;blockquote&gt;
+&lt;p&gt;记录一些日常渗透测试中提高效率的 Burp Suite 插件。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;hr /&gt;
+&lt;h2&gt;前言&lt;/h2&gt;
+&lt;p&gt;转眼26年都已经过半了，来分享一下这半年我日常使用比较多的一些 Burp
+插件，以及使用建议。&lt;/p&gt;
+&lt;p&gt;AI 类插件这次就不统计了，比如 burp-mcp 和
+burp-agent，之前的文章已经介绍过了。&lt;/p&gt;
+&lt;p&gt;这篇主要分享一些偏传统渗透流程中的插件：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;信息收集&lt;/li&gt;
+&lt;li&gt;流量分析&lt;/li&gt;
+&lt;li&gt;漏洞检测&lt;/li&gt;
+&lt;li&gt;Payload 辅助&lt;/li&gt;
+&lt;li&gt;自动化测试&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h1&gt;正文&lt;/h1&gt;
+&lt;h2&gt;信息收集&lt;/h2&gt;
+&lt;h3&gt;一、HaE（伟大无需多言，建议推荐默认开启）&lt;/h3&gt;
+&lt;p&gt;信息高亮显示&lt;/p&gt;
+&lt;p&gt;地址：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;https://github.com/overspace-labs/HaE
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;HaE（Highlight Everything）是 Burp 用户中非常经典的插件。&lt;/p&gt;
+&lt;p&gt;主要作用：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;HTTP流量高亮&lt;/li&gt;
+&lt;li&gt;敏感信息定位&lt;/li&gt;
+&lt;li&gt;Token、Cookie、Key快速发现&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;配置规则后，可以快速标记重点内容，提高日常测试效率。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h3&gt;二、FingerPrint（推荐默认关闭，使用时开启）&lt;/h3&gt;
+&lt;p&gt;指纹识别&lt;/p&gt;
+&lt;p&gt;地址：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;https://github.com/shuanx/BurpFingerPrint
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;主要用于小程序测试时识别OA。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2&gt;流量分析 / Payload 辅助&lt;/h2&gt;
+&lt;h3&gt;三、HackBar Payload（推荐默认关闭，使用时开启）&lt;/h3&gt;
+&lt;p&gt;地址：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;https://github.com/d3vilbug/HackBar
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;常用于：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Payload生成&lt;/li&gt;
+&lt;li&gt;编码转换&lt;/li&gt;
+&lt;li&gt;参数处理&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;适合 SQL 注入、XSS、命令执行等测试场景。&lt;/p&gt;
+&lt;p&gt;虽然现在有很多 AI
+可以辅助生成Payload，但是个人还是喜欢保留这个工具，简单快速。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h3&gt;四、CaA（推荐默认开启）&lt;/h3&gt;
+&lt;p&gt;分析、拆解HTTP协议报文，收集字典。&lt;/p&gt;
+&lt;p&gt;地址：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;https://github.com/overspace-labs/CaA
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;用于辅助：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;参数发现&lt;/li&gt;
+&lt;li&gt;接口探测&lt;/li&gt;
+&lt;li&gt;字段枚举&lt;/li&gt;
+&lt;li&gt;Payload测试&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;很多漏洞需要不断尝试才能发现，一个好的字典往往比盲目测试更加有效。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2&gt;漏洞检测&lt;/h2&gt;
+&lt;h3&gt;五、Turbo Intruder（推荐默认关闭，使用时开启）&lt;/h3&gt;
+&lt;p&gt;地址：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;https://github.com/PortSwigger/turbo-intruder
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;PortSwigger 官方插件。&lt;/p&gt;
+&lt;p&gt;优势：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;高性能请求&lt;/li&gt;
+&lt;li&gt;Python脚本控制&lt;/li&gt;
+&lt;li&gt;大规模请求测试&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;适用于：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;爆破测试&lt;/li&gt;
+&lt;li&gt;竞态条件&lt;/li&gt;
+&lt;li&gt;大量参数测试&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;业务测试时需要注意请求频率，不要影响正常服务。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h3&gt;六、Auto-SSRF（推荐默认关闭，使用时开启）&lt;/h3&gt;
+&lt;p&gt;地址：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;https://github.com/banchengkemeng/Auto-SSRF
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;SSRF探测，漏洞挖掘时可以打开有意外惊喜&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h3&gt;七、APIKit（推荐默认关闭，使用时开启）&lt;/h3&gt;
+&lt;p&gt;地址：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;https://github.com/API-Security/APIKit
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;被动扫描，注意触发WAF。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2&gt;权限测试&lt;/h2&gt;
+&lt;h3&gt;八、BypassPro（推荐默认关闭，使用时开启）&lt;/h3&gt;
+&lt;p&gt;地址：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;https://github.com/0x727/BypassPro
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;越权测试神器。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h2&gt;加解密分析&lt;/h2&gt;
+&lt;h3&gt;九、Captcha-Killer（推荐默认关闭，使用时开启）&lt;/h3&gt;
+&lt;p&gt;地址：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;https://github.com/f0ng/captcha-killer-modified
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;面对登录框没有思路时，可以尝试使用，有本地ai的话可以测试使用killcap。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h3&gt;十、AutoDecoder（推荐默认关闭，使用时开启）&lt;/h3&gt;
+&lt;p&gt;地址：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;https://github.com/f0ng/autoDecoder
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;这个是我在日常漏洞挖掘使用频率比较高的工具。&lt;/p&gt;
+&lt;p&gt;现在很多系统请求参数都会加密，一个个手动解密非常麻烦。&lt;/p&gt;
+&lt;p&gt;它比较方便的一点是：&lt;/p&gt;
+&lt;p&gt;解码请求后可以直接修改参数，发送时重新编码。&lt;/p&gt;
+&lt;p&gt;这个是原理图：
+https://user-images.githubusercontent.com/48286013/188769399-5509ca25-9f23-4abc-8074-ff410534cf73.jpg&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h3&gt;十一、Galaxy（推荐默认关闭，使用时开启）&lt;/h3&gt;
+&lt;p&gt;地址：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;https://github.com/outlaws-bai/Galaxy
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;和AutoDecoder差不多的功能。&lt;/p&gt;
+&lt;p&gt;适用于：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;参数加密&lt;/li&gt;
+&lt;li&gt;请求混淆&lt;/li&gt;
+&lt;li&gt;自定义编码&lt;/li&gt;
+&lt;/ul&gt;
+&lt;hr /&gt;
+&lt;h2&gt;其他辅助&lt;/h2&gt;
+&lt;h3&gt;十二、Awesome-TLS（推荐默认关闭，使用时开启）&lt;/h3&gt;
+&lt;p&gt;地址：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;https://github.com/sleeyax/burp-awesome-tls
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;用 Burp 扩展来规避 TLS 指纹识别。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h3&gt;十三、DouSql-SQL注入检测-v3.0.10.jar （推荐默认关闭，使用时开启）&lt;/h3&gt;
+&lt;p&gt;地址：&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;https://github.com/darkfiv/DouSql
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;DouSql 是基于 Xia Sql 二次开发的 Burp Suite SQL 注入辅助检测插件。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;h1&gt;总结&lt;/h1&gt;
+&lt;p&gt;虽然进入 AI 时代，但是不要忘记老传统，只有基础稳固，后续才会走得更远。&lt;/p&gt;
+&lt;p&gt;后续发现新的好用插件会继续补充。&lt;/p&gt;
+&lt;hr /&gt;
+</content:encoded></item><item><title>博客重构</title><link>https://feng-mian01.github.io/posts/%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%9E%84/</link><guid isPermaLink="true">https://feng-mian01.github.io/posts/%E5%8D%9A%E5%AE%A2%E9%87%8D%E6%9E%84/</guid><description>博客架构升级，开启新的篇章</description><pubDate>Wed, 08 Jul 2026 00:00:00 GMT</pubDate><content:encoded>&lt;h1&gt;博客重构&lt;/h1&gt;
+&lt;p&gt;博客进行了一次全面的架构升级，从原先的模板迁移到了基于 Astro 构建的 Fuwari 主题。&lt;/p&gt;
+&lt;h2&gt;为什么重构&lt;/h2&gt;
+&lt;p&gt;旧博客的架构已经跟不上需求，维护起来越来越困难。&lt;/p&gt;
+&lt;p&gt;为了提供更好的阅读体验，也为了让博客能够持续发展，决定进行这次重构。&lt;/p&gt;
+&lt;h2&gt;新的变化&lt;/h2&gt;
+&lt;p&gt;新博客带来了一些改进：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;更好的性能和加载速度&lt;/li&gt;
+&lt;li&gt;支持亮色/暗色模式切换&lt;/li&gt;
+&lt;li&gt;文章搜索功能&lt;/li&gt;
+&lt;li&gt;更流畅的页面过渡动画&lt;/li&gt;
+&lt;li&gt;优化的移动端体验&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;关于旧文章&lt;/h2&gt;
+&lt;p&gt;之前的文章因为架构差异较大，需要重新整理才能迁移过来。&lt;/p&gt;
+&lt;p&gt;我会在最近陆续恢复这些内容，感谢各位师傅的理解和耐心等待。&lt;/p&gt;
+&lt;h2&gt;感谢&lt;/h2&gt;
+&lt;p&gt;感谢一直以来关注和支持这个博客的各位师傅，希望新的博客能带来更好的阅读体验。&lt;/p&gt;
+&lt;p&gt;未来会继续分享网络安全相关的知识和经验，和大家一起进步。&lt;/p&gt;
+</content:encoded></item></channel></rss>
