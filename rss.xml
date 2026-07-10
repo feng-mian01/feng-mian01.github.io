@@ -18,8 +18,7 @@ burp-agent，之前的文章已经介绍过了。&lt;/p&gt;
 &lt;/ul&gt;
 &lt;hr /&gt;
 &lt;h1&gt;正文&lt;/h1&gt;
-&lt;h2&gt;信息收集&lt;/h2&gt;
-&lt;h3&gt;一、HaE（伟大无需多言，建议推荐默认开启）&lt;/h3&gt;
+&lt;h3&gt;一、HaE（伟大无需多言，推荐默认开启）&lt;/h3&gt;
 &lt;p&gt;信息高亮显示&lt;/p&gt;
 &lt;p&gt;地址：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;https://github.com/overspace-labs/HaE
@@ -40,7 +39,6 @@ burp-agent，之前的文章已经介绍过了。&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;主要用于小程序测试时识别OA。&lt;/p&gt;
 &lt;hr /&gt;
-&lt;h2&gt;流量分析 / Payload 辅助&lt;/h2&gt;
 &lt;h3&gt;三、HackBar Payload（推荐默认关闭，使用时开启）&lt;/h3&gt;
 &lt;p&gt;地址：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;https://github.com/d3vilbug/HackBar
@@ -69,7 +67,6 @@ burp-agent，之前的文章已经介绍过了。&lt;/p&gt;
 &lt;/ul&gt;
 &lt;p&gt;很多漏洞需要不断尝试才能发现，一个好的字典往往比盲目测试更加有效。&lt;/p&gt;
 &lt;hr /&gt;
-&lt;h2&gt;漏洞检测&lt;/h2&gt;
 &lt;h3&gt;五、Turbo Intruder（推荐默认关闭，使用时开启）&lt;/h3&gt;
 &lt;p&gt;地址：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;https://github.com/PortSwigger/turbo-intruder
@@ -101,14 +98,12 @@ burp-agent，之前的文章已经介绍过了。&lt;/p&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;被动扫描，注意触发WAF。&lt;/p&gt;
 &lt;hr /&gt;
-&lt;h2&gt;权限测试&lt;/h2&gt;
 &lt;h3&gt;八、BypassPro（推荐默认关闭，使用时开启）&lt;/h3&gt;
 &lt;p&gt;地址：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;https://github.com/0x727/BypassPro
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;越权测试神器。&lt;/p&gt;
 &lt;hr /&gt;
-&lt;h2&gt;加解密分析&lt;/h2&gt;
 &lt;h3&gt;九、Captcha-Killer（推荐默认关闭，使用时开启）&lt;/h3&gt;
 &lt;p&gt;地址：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;https://github.com/f0ng/captcha-killer-modified
@@ -124,7 +119,7 @@ burp-agent，之前的文章已经介绍过了。&lt;/p&gt;
 &lt;p&gt;它比较方便的一点是：&lt;/p&gt;
 &lt;p&gt;解码请求后可以直接修改参数，发送时重新编码。&lt;/p&gt;
 &lt;p&gt;这个是原理图：
-https://user-images.githubusercontent.com/48286013/188769399-5509ca25-9f23-4abc-8074-ff410534cf73.jpg&lt;/p&gt;
+&lt;img src=&quot;https://user-images.githubusercontent.com/48286013/188769399-5509ca25-9f23-4abc-8074-ff410534cf73.jpg&quot; alt=&quot;示例图片描述&quot; /&gt;&lt;/p&gt;
 &lt;hr /&gt;
 &lt;h3&gt;十一、Galaxy（推荐默认关闭，使用时开启）&lt;/h3&gt;
 &lt;p&gt;地址：&lt;/p&gt;
@@ -138,14 +133,13 @@ https://user-images.githubusercontent.com/48286013/188769399-5509ca25-9f23-4abc-
 &lt;li&gt;自定义编码&lt;/li&gt;
 &lt;/ul&gt;
 &lt;hr /&gt;
-&lt;h2&gt;其他辅助&lt;/h2&gt;
 &lt;h3&gt;十二、Awesome-TLS（推荐默认关闭，使用时开启）&lt;/h3&gt;
 &lt;p&gt;地址：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;https://github.com/sleeyax/burp-awesome-tls
 &lt;/code&gt;&lt;/pre&gt;
 &lt;p&gt;用 Burp 扩展来规避 TLS 指纹识别。&lt;/p&gt;
 &lt;hr /&gt;
-&lt;h3&gt;十三、DouSql-SQL注入检测-v3.0.10.jar （推荐默认关闭，使用时开启）&lt;/h3&gt;
+&lt;h3&gt;十三、DouSql-SQL （推荐默认关闭，使用时开启）&lt;/h3&gt;
 &lt;p&gt;地址：&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;https://github.com/darkfiv/DouSql
 &lt;/code&gt;&lt;/pre&gt;
